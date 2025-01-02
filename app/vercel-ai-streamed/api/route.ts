@@ -8,6 +8,8 @@ const modelName = "gpt-4o-2024-08-06";
 export async function POST(req: Request) {
   const { prompt } = await req.json();
 
+  console.log("prompt vercel-ai-streamed", prompt);
+
   const result = await streamObject({
     model: openai(modelName, { structuredOutputs: true }),
     schema: RecipeSchema,

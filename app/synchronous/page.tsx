@@ -9,7 +9,7 @@ import { Loading } from "@/components/loading";
 import { RecipeSchema } from "@/src/recipeSchema";
 
 export default function SyncPage() {
-  const [prompt, setPrompt] = useState("chocolate brownies");
+  const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [recipe, setRecipe] = useState<z.infer<typeof RecipeSchema>>();
 
@@ -20,7 +20,7 @@ export default function SyncPage() {
 
     const data = await fetch("/synchronous/api", {
       method: "POST",
-      body: JSON.stringify({ prompt: "chocolate brownies" }),
+      body: JSON.stringify({ prompt }),
     });
 
     setIsLoading(false);
