@@ -15,6 +15,8 @@ if (!process.env.OPENAI_API_KEY) {
 export async function POST(req: Request) {
   const { prompt } = await req.json();
 
+  console.log("prompt streaming", prompt);
+
   const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   });

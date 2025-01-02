@@ -9,6 +9,8 @@ const modelName = "gpt-4o-2024-08-06";
 export async function POST(req: Request) {
   const { prompt } = await req.json();
 
+  console.log("prompt synchronous", prompt);
+
   const client = new OpenAI();
 
   const response = await client.chat.completions.create({
